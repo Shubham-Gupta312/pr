@@ -14,8 +14,15 @@ import service10 from "../wp-content/uploads/sites/3/2019/10/project-12-1-760x76
 import service11 from "../wp-content/uploads/sites/3/2019/10/project-10-760x760.jpg"
 import service12 from "../wp-content/uploads/sites/3/2019/10/project-11-760x760.jpg"
 import Header from '../Header/Header';
+import { useState } from "react";
 
 function Services() {
+    const [activeTab, setActiveTab] = useState(1);
+
+    function setTab(id) {
+        setActiveTab(id)
+    }
+
     return (
         <>
 
@@ -70,11 +77,11 @@ function Services() {
                                                                     <div className="project-filter-wrapper">
                                                                         <div className="container">
                                                                             <ul className="project_filters">
-                                                                                <li><a href="#" data-filter="*" className="selected">All</a></li>
-                                                                                <li><a  data-filter=".category-14">Development</a></li>
-                                                                                <li><a  data-filter=".category-15">Marketing</a></li>
-                                                                                <li><a  data-filter=".category-16">Media</a></li>
-                                                                                <li><a  data-filter=".category-17">Optimization</a></li>
+                                                                                <li><a href="#" data-filter="*" className={activeTab === 1 ? "setSelected": "selected"} onClick={()=>setTab(1)} >All</a></li>
+                                                                                <li><a  data-filter=".category-14" className={activeTab === 2 ? "setSelected": "selected"} onClick={()=>setTab(2)} >Development</a></li>
+                                                                                <li><a  data-filter=".category-15" className={activeTab === 3 ? "setSelected": "selected"} onClick={()=>setTab(3)} >Marketing</a></li>
+                                                                                <li><a  data-filter=".category-16" className={activeTab === 4 ? "setSelected": "selected"} onClick={()=>setTab(4)} >Media</a></li>
+                                                                                <li><a  data-filter=".category-17" className={activeTab === 5 ? "setSelected": "selected"} onClick={()=>setTab(5)} >Optimization</a></li>
                                                                             </ul>
                                                                         </div>
                                                                         <div className="projects-grid projects-style-1 ">
